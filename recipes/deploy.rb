@@ -16,6 +16,7 @@ node[:deploy].each do |application, deploy|
   end
 
   include_recipe "opsworks_sidekiq::setup"
+  include_recipe "opsworks_nodejs::create_env_file"
 
   template "#{deploy[:deploy_to]}/shared/config/memcached.yml" do
     cookbook "rails"
